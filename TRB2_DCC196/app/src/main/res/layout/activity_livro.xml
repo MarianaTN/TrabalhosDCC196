@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.marit.trb2_dcc196.ActivityLivro">
+
+    <EditText
+        android:id="@+id/edtTitulo"
+        android:layout_width="352dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="Digite o Titulo do livro"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="63dp" />
+
+    <EditText
+        android:id="@+id/edtEditora"
+        android:layout_width="352dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:hint="Digite a editora"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edtTitulo"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/edtAno"
+        android:layout_width="352dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:hint="Digite o ano de publicaçao"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edtEditora"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/btnCadastroLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="119dp"
+        android:layout_marginTop="57dp"
+        android:text="Cadastrar Livro"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtAno"
+        android:layout_marginStart="119dp" />
+
+    <TextView
+        android:id="@+id/txtAux3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="16dp"
+        android:text="Livros em Exposição"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="110dp" />
+
+    <Button
+        android:id="@+id/btnListaLivros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="37dp"
+        android:text="Lista de Livros"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCadastroLivro" />
+
+</android.support.constraint.ConstraintLayout>
