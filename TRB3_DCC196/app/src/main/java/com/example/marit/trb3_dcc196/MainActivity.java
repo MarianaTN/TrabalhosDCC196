@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,13 +26,19 @@ public class MainActivity extends AppCompatActivity {
     Cursor cursor;
     ArrayAdapter<Tarefa> adaptador;
     ArrayList<Tag> tags = new ArrayList<Tag>();
+    private Button btnTag;
+    private Button btnAssociar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tarefaHelper = new TarefaDbHelper(getApplicationContext());
+
         btnCadastroTarefa = (Button) findViewById(R.id.btnCadastroTarefa);
         lstTarefas = (ListView) findViewById(R.id.lstTarefas);
+        btnTag = (Button) findViewById(R.id.btnTag);
+        btnAssociar = (Button) findViewById(R.id.btnAssociar);
 
         tarefas = tarefaHelper.carregaDados();
        // Tarefa t = tarefaHelper.retornarUltimo();
@@ -41,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         tags = (ArrayList<Tag>) getIntent().getSerializableExtra("tags");
 
         final ArrayAdapter<Tarefa> adaptador = new ArrayAdapter<>(
-                getApplicationContext(),
+                getBaseContext(),
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
                 tarefas
@@ -68,8 +75,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(pedirtarefa);
             }
         });
-
-
+        btnTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityCadastroTag.class);
+                startActivity(intent);
+            }
+        });
+        btnAssociar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AssociarTagTarefa.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

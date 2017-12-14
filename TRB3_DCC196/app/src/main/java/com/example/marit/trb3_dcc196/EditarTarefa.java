@@ -31,10 +31,6 @@ public class EditarTarefa extends AppCompatActivity {
     Cursor cursor;
     Integer codigo;
     TarefaDbHelper tarefaHelper;
-    private EditText edtTag1;
-    private EditText edtTag2;
-    private EditText edtTag3;
-    private EditText edtTag4;
     private ArrayList<Tag> tags = new ArrayList<>();
     private ListView lstTags;
     TagDbHelper tagHelper;

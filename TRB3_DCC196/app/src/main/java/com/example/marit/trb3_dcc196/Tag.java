@@ -46,6 +46,6 @@ public class Tag implements Serializable {
     public void insereTarefa(Tarefa t) {tarefas.add(t);}
     @Override
     public String toString() {
-        return "(" + getValor() + ")";
+        return getValor();
     }
 }

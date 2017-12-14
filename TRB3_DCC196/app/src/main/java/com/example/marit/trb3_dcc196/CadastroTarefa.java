@@ -33,6 +33,7 @@ public class CadastroTarefa extends AppCompatActivity {
     private List<Integer> tagsID = new ArrayList<>();
     TagDbHelper tagHelper;
     private Button btnTag;
+    private Button btnMain;
     TarefaDbHelper tarefaHelper;
     AuxTagTarefa auxHelper;
     int id;
@@ -52,10 +53,7 @@ public class CadastroTarefa extends AppCompatActivity {
         spEstado = (Spinner) findViewById(R.id.spEstados);
         spGraus = (Spinner) findViewById(R.id.spGraus);
         btnTag = (Button) findViewById(R.id.btnTag);
-       /* edtTag1 = (EditText) findViewById(R.id.edtTag1);
-        edtTag2 = (EditText) findViewById(R.id.edtTag2);
-        edtTag3 = (EditText) findViewById(R.id.edtTag3);
-        edtTag4 = (EditText) findViewById(R.id.edtTag4); */
+        btnMain = (Button) findViewById(R.id.btnMain);
 
         estados.add("A fazer");
         estados.add("Em execução");
@@ -120,24 +118,8 @@ public class CadastroTarefa extends AppCompatActivity {
             public void onClick(View view) {
                 String titulo = edtTitulo.getText().toString();
                 String descricao = edtDescricao.getText().toString();
-                /*Tag t = new Tag();
-                t.setValor(edtTag1.getText().toString());
-                tags.add(t);
-                t.setValor(edtTag2.getText().toString());
-                tags.add(t);
-                t.setValor(edtTag3.getText().toString());
-                tags.add(t);
-                t.setValor(edtTag4.getText().toString());
-                tags.add(t); */
                 Toast.makeText(getApplicationContext(),"Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-                /*Intent intent = new Intent();
-                intent.putExtra("titulo",titulo);
-                intent.putExtra("descricao",descricao);
-                intent.putExtra("grau",grau);
-                intent.putExtra("estado",estado);
-                intent.putExtra("tags", (Parcelable) tagsID);
-                setResult(RESULT_OK, intent);
-                */
+
                 Tarefa t = new Tarefa();
                 t.setTitulo(titulo);
                 t.setDescricao(descricao);
@@ -146,18 +128,13 @@ public class CadastroTarefa extends AppCompatActivity {
                 t.insereTag(tag);
                 tag.insereTarefa(t);
                 int id = tarefaHelper.inserirTarefa(t);
-                auxHelper.inserirTagTarefa(id,tagsID);
-                Intent intent = new Intent();
-                intent.putExtra("tag",tag);
                 finish();
             }
         });
-
-        btnTag.setOnClickListener(new View.OnClickListener() {
+        btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CadastroTarefa.this, ActivityCadastroTag.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

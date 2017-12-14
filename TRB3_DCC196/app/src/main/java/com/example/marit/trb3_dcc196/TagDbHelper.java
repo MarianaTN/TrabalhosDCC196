@@ -14,19 +14,18 @@ import java.util.List;
  */
 
 public class TagDbHelper extends OrganizacaoDbHelper {
-    int id;
+    long id;
 
     public TagDbHelper(Context context) {
         super(context);
     }
-    public int inserirTag(Tag u) {
+    public long inserirTag(Tag u) {
         try {
             SQLiteDatabase db = getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put(OrganizacaoContract.Tag.COLUMN_NAME_TEXTO, u.getValor());
-            db.insert(OrganizacaoContract.Tag.TABLE_NAME, null, values);
+            id = db.insert(OrganizacaoContract.Tag.TABLE_NAME, null, values);
             atualizar();
-            id = Integer.parseInt(OrganizacaoContract.Tag._ID);
         } catch (Exception e) {
             Log.e("InserirTag", e.getLocalizedMessage());
             Log.e("InserirTag", e.getStackTrace().toString());

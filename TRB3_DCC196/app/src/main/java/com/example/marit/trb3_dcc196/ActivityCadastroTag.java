@@ -9,9 +9,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class ActivityCadastroTag extends AppCompatActivity {
-    private Button btnCadastroTag;
     private EditText edtTag;
     TagDbHelper tagHelper;
+    private Button btnCadastroTag;
+    private Button btnMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +20,24 @@ public class ActivityCadastroTag extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_tag);
         tagHelper = new TagDbHelper(getApplicationContext());
 
-        btnCadastroTag = (Button) findViewById(R.id.btnCadastroTag);
         edtTag = (EditText) findViewById(R.id.edtTag);
+        btnCadastroTag = (Button) findViewById(R.id.btnCadastroTag);
+        btnMain = (Button) findViewById(R.id.btnMain);
 
         btnCadastroTag.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String tag = edtTag.getText().toString();
-                Tag t = new Tag(tag);
-                int id = tagHelper.inserirTag(t);
+                Tag t = new Tag();
+                t.setValor(tag);
+                tagHelper.inserirTag(t);
                 Toast.makeText(getApplicationContext(),"Tag cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.putExtra("tag", tag);
+            }
+        });
+
+        btnMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
         });

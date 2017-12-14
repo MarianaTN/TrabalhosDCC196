@@ -79,7 +79,7 @@ public class Tarefa implements Serializable {
     public void insereTag(Tag t) {tags.add(t);}
     @Override
     public String toString() {
-        return getTitulo()+" ["+getTags().size()+"]";
+        return getTitulo();
     }
 
 }

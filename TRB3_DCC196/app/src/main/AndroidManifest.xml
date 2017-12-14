@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".CadastroTarefa" />
         <activity android:name=".EditarTarefa" />
-        <activity android:name=".ActivityCadastroTag"></activity>
+        <activity android:name=".ActivityCadastroTag" />
+        <activity android:name=".AssociarTagTarefa"></activity>
     </application>
 
 </manifest>

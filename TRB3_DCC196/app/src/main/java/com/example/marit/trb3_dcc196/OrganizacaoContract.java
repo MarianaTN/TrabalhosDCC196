@@ -47,7 +47,13 @@ public class OrganizacaoContract {
                 Tarefa.COLUMN_NAME_ESTADO +
                 " FROM "+ Tarefa.TABLE_NAME;
 
-        static final String SQL_SELECT_ID = "SELECT * FROM " + Tarefa.TABLE_NAME + " ORDER BY " + Tarefa._ID + " DESC";
+        static final String SQL_SELECT_ID = "SELECT " +
+                Tarefa._ID + SEP +
+                Tarefa.COLUMN_NAME_TITULO + SEP +
+                Tarefa.COLUMN_NAME_DESCRICAO + SEP +
+                Tarefa.COLUMN_NAME_GRAU_DIFICULDADE + SEP +
+                Tarefa.COLUMN_NAME_ESTADO +
+                " FROM "+ Tarefa.TABLE_NAME + " ORDER BY " + Tarefa._ID + " DESC";
     }
 
     public static final class Tag implements BaseColumns{
